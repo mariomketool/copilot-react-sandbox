@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { calculateWinner } from '../helpers';
 
 const initialState = {
   history: [Array(9).fill(null)],
   currentMove: 0,
+  winner: null,
 };
 
 const gameSlice = createSlice({
@@ -14,6 +16,7 @@ const gameSlice = createSlice({
       const history = state.history.slice(0, state.currentMove + 1);
       state.history = [...history, nextSquares];
       state.currentMove = history.length;
+      state.winner = calculateWinner(state.history[state.currentMove]);
     },
     jumpToMove: (state, action) => {
       state.currentMove = action.payload;

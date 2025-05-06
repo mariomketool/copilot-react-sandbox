@@ -1,51 +1,29 @@
 import React from 'react';
-import { calculateWinner } from '../../helpers';
 import Square from '../Square';
+import Status from './Status';
 
-function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    const nextSquares = squares.slice();
-    if (xIsNext) {
-      nextSquares[i] = 'X';
-    } else {
-      nextSquares[i] = 'O';
-    }
-    onPlay(nextSquares);
-  }
-
-  const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = 'Winner: ' + winner;
-  } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
-  }
+function Board() {
 
   return (
     <>
       <div className="mb-2">
-        <h4 className='text-2xl font-bold text-center'>
-        {status}
-        </h4>
+        <Status />
       </div>
       
       <div className="board-row clearfix">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+        <Square idx={0} />
+        <Square idx={1} />
+        <Square idx={2} />
       </div>
       <div className="board-row clearfix">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+        <Square idx={3} />
+        <Square idx={4} />
+        <Square idx={5} />
       </div>
       <div className="board-row clearfix">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+        <Square idx={6} />
+        <Square idx={7} />
+        <Square idx={8} />
       </div>
     </>
   );
