@@ -19,3 +19,7 @@ Here is an example for what a component directory might look like. The `index.js
 |-- constants.jsx     // Optional - Add related strings to be reused.
 |-- helpers.jsx       // Optional - Add helper methods specific to this component.
 ```
+
+## Component styles and CSS
+
+All styles should be implemented using tailwind classes.
