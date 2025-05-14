@@ -4,18 +4,8 @@
 
 Every component must live in it's own directory. The directory name should match the name of the component. The component must be placed inside an `index.jsx` file.
 
-All components must tailwind classes when applying any styles.
+To apply styles to a component, follow the directions [here](https://www.npmjs.com/package/tailwind-styled-components).
 
-### Anatomy of a component
+## Install packages using yarn
 
-Here is an example for what a component directory might look like. The `index.jsx` file is required.
-
-```js
-📂 MyComponent
-|-- index.jsx         // Required - The component is the default export.
-|-- styles.jsx        // Optional - if component uses tailwind classes or applies styles.
-|-- server.jsx        // Optional - perform server side operations.
-|-- translations.json // Optional - set translations keys.
-|-- constants.jsx     // Optional - Add related strings to be reused.
-|-- helpers.jsx       // Optional - Add helper methods specific to this component.
-```
+When installing npm packages, use yarn.
